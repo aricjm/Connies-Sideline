@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Connie's Sideline</title>
+  <meta name="description" content="Iowa Hawkeyes scores app for Connie - football, men's & women's basketball" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="refresh-overlay" id="refreshOverlay">
+    <div class="refresh-spinner"></div>
+    <div class="refresh-text">Refreshing scores&hellip;</div>
+  </div>
+  <header class="app-header" id="appHeader">
+    <div class="header-content">
+      <button class="icon-btn" id="settingsBtn" aria-label="Settings">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c5.5 0 10 4.5 10 10s-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2m0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16m0 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m-7 7a1 1 0 1 0 0 2h4v1a1 1 0 1 0 2 0v-4a1 1 0 1 0-2 0v1H6a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-1v-1a1 1 0 1 0-2 0v1z"/></svg>
+      </button>
+      <div class="header-title">
+        <div class="title-row"><span class="logo-mark">I</span><span class="app-name">Connie's Sideline</span></div>
+        <div class="subtitle">Iowa Hawkeyes</div>
+      </div>
+      <button class="icon-btn" id="refreshBtn" aria-label="Refresh">
+        <svg class="icon icon--spin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v2c5 0 7 3 7 7s-2 7-7 7-7-3-7-7-2-7-7-7V4c5 0 7 3 7 7s-2 7-7 7-7-3-7-7-2-7-7-7V4c5 0 7 3 7 7z"/></svg>
+      </button>
+    </div>
+  </header>
+  <section class="date-section">
+    <label class="date-label" for="gameDate">Game date</label>
+    <input type="date" id="gameDate" class="date-input" />
+  </section>
+  <main class="games-container" id="gamesContainer">
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <p class="empty-msg">No Iowa Hawkeye games found for this date.</p>
+      <p class="empty-hint">Try selecting another date.</p>
+    </div>
+    <div class="games-list" id="gamesList"></div>
+  </main>
+  <div class="modal-overlay" id="settingsModal" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Settings</h2>
+        <button class="modal-close" id="settingsCloseBtn" aria-label="Close settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-hint">Choose your time zone so game times display correctly.</p>
+        <div class="tz-options">
+          <button class="tz-btn" data-tz="America/New_York" data-label="ET">Eastern (ET)</button>
+          <button class="tz-btn" data-tz="America/Chicago" data-label="CT">Central (CT)</button>
+          <button class="tz-btn" data-tz="America/Denver" data-label="MT">Mountain (MT)</button>
+          <button class="tz-btn" data-tz="America/Los_Angeles" data-label="PT">Pacific (PT)</button>
+        </div>
+        <div class="hint">Stored locally on your phone.</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="statsModal" aria-hidden="true">
+    <div class="modal modal--stats">
+      <div class="modal-header">
+        <h2 class="modal-title" id="statsModalTitle">Game Stats</h2>
+        <button class="modal-close" id="statsCloseBtn" aria-label="Close stats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+      </div>
+      <div class="modal-body" id="statsModalBody"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
